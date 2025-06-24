@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Hospital } from "@/app/(protected)/(roles)/(patient)/Hospitales/data/hospitals";
+import { Hospital } from "@/app/(patient)/Hospitales/data/hospitals";
 
 export function HospitalCard({ hospital }: { hospital: Hospital }) {
   return (

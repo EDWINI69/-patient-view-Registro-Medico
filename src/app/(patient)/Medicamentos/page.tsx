@@ -64,27 +64,6 @@ export default function Medicamentos() {
     },
   ];
 
-  // const [data1, setData1] = useState<any[]>([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response1 = await fetch(
-  //         `https://condemned-raf-itla-d269e995.koyeb.app/api/patientmedicationprescription?patientId=37439d05-9b3b-4896-88e0-4ee7b7221a8b`
-  //       ).then((res) => res.json());
-
-  //       setData1(response1);
-  //     } catch (error) {
-  //       console.error("Error fetching data", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-  // console.log(data1);
   return (
     <div className="flex">
       <Sidebar />
@@ -191,18 +170,17 @@ export default function Medicamentos() {
                         day: "numeric",
                       })}
                     </TableCell>
-                    <p className="text-center">
                       <TableCell
-                        className={`rounded-full font-semibold text-center p-2 ${
-                          medshistory.status === true
-                            ? "text-blue-500 bg-blue-50"
-                            : "text-orange-600 bg-orange-50"
-                        }`}
+                        className={`rounded-full font-semibold text-center `}
                       >
-                        {" "}
+                        <div className={`rounded-full font-semibold text-center p-2 ${
+                          medshistory.status === true
+                            ? "text-blue-500 w-20 bg-blue-50"
+                            : "text-orange-600 w-20 bg-orange-50"
+                        }`}>
                         {medshistory?.status === true ? "Activo" : "Inactivo"}
+                      </div>
                       </TableCell>
-                    </p>
                   </TableRow>
                 ))}
               </TableBody>

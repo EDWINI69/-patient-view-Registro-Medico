@@ -47,9 +47,8 @@ export default function PatientDashboard() {
   // }, []);
 
   const dataStudies = [
-    { id: 1, testName: "Prostata" },
-    { id: 2, testName: "Ano" },
-    { id: 3, testName: "Culo" },
+    { id: 1, testName: "Ecografía abdominal" },
+    { id: 2, testName: "apendicectomía " }
   ];
 
   return (
@@ -98,7 +97,7 @@ export default function PatientDashboard() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
+                        <button className="bg-black text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300">
                           Ver documento
                         </button>
                       </TableCell>

@@ -24,8 +24,7 @@ export default function ConsultationCard({
           }`}
       >
         {" "}
-        {consultation.map((consult) => (
-          <div className="" key={consult.id}>
+          <div className="" key={consultation.id}>
             <div className="flex justify-between items-start mb-4">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Detalles de la Consulta
@@ -40,7 +39,7 @@ export default function ConsultationCard({
 
             <p className="text-2xl font-semibold mb-4 text-gray-800 bg-gray-100 p-4 rounded-lg">
               Fecha de consulta:{" "}
-              {new Date(consult.date).toLocaleString("es-ES", {
+              {new Date(consultation.date).toLocaleString("es-ES", {
                 year: "numeric",
                 month: "numeric",
                 day: "numeric",
@@ -49,17 +48,17 @@ export default function ConsultationCard({
 
             <p className="text-xl font-semibold mb-6 border-b pb-2">
               <strong className="text-gray-700">Doctor:</strong>{" "}
-              {consult.doctor || "Ninguno"}
+              {consultation.doctor || "Ninguno"}
             </p>
 
             <div className="mb-8 space-y-5">
               <p>
                 <strong className="">Razón de visita:</strong>{" "}
-                {consult.reason || "Ninguno"}
+                {consultation.reasonForVisit || "Ninguno"}
               </p>
               <p>
                 <strong className="">Historia actual:</strong>{" "}
-                {consult.currentHistory || "Ninguno"}
+                {consultation.currentHistory || "Ninguno"}
               </p>
               <p>
                 <strong className="">Examen físico:</strong>{" "}
@@ -67,13 +66,13 @@ export default function ConsultationCard({
               </p>
             </div>
 
-            <div className="mb-6" key={consult.id}>
+            <div className="mb-6" key={consultation.id}>
               <h3 className="text-xl font-semibold mb-3 text-gray-700 border-b pb-2">
                 Histórico de citas:
               </h3>
               <ul className="list-disc list-inside space-y-1">
-                {consult.relatedAppointments.length > 0 ? (
-                  consult.relatedAppointments.map((date, index) => (
+                {consultation.relatedAppointments.length > 0 ? (
+                  consultation.relatedAppointments.map((date, index) => (
                     <li key={index}>
                       {new Date(date).toLocaleString("es-ES", {
                         year: "numeric",
@@ -92,22 +91,22 @@ export default function ConsultationCard({
               <h3 className="text-xl font-semibold mb-3 text-gray-700 border-b pb-2">
                 Diagnósticos:
               </h3>
-              <div className="space-y-4" key={consult.id}>
+              <div className="space-y-4" key={consultation.id}>
                 <p className="">
                   <strong className="text-gray-700">Alergias:</strong>{" "}
-                  {consult.diagnoses.allergies}
+                  {consultation.diagnoses.allergies}
                 </p>
                 <p>
                   <strong className="text-gray-700">Discapacidades:</strong>{" "}
-                  {consult.diagnoses.disabilities}
+                  {consultation.diagnoses.disabilities}
                 </p>
                 <p>
                   <strong className="text-gray-700">Enfermedades:</strong>{" "}
-                  {consult.diagnoses.diseases}
+                  {consultation.diagnoses.diseases}
                 </p>
                 <p>
                   <strong className="text-gray-700">Factores de Riesgo:</strong>{" "}
-                  {consult.diagnoses.riskFactors}
+                  {consultation.diagnoses.riskFactors}
                 </p>
               </div>
             </div>
@@ -117,8 +116,7 @@ export default function ConsultationCard({
               </h3>
               <div>
                 <ul className="list-disc list-inside">
-                  {consult.prescriptions
-                    .split(", ")
+                  {consultation.prescriptions
                     .map((medication, index) => (
                       <li key={index}>{medication}</li>
                     ))}
@@ -145,22 +143,22 @@ export default function ConsultationCard({
               <strong className="text-gray-700">Estatus de la consulta:</strong>{" "}
               <span
                 className={`px-2 py-1 rounded-full text-x1 font-semibold ${
-                  consult.status === "Completed"
+                  consultation.status === "Completado"
                     ? "bg-green-100 text-green-800"
-                    : consult.status === "Pending"
+                    : consultation.status === "Pendiente"
                     ? "bg-orange-100 text-orange-800"
-                    : consult.status === "Ongoing"
+                    : consultation.status === "Ongoing"
                     ? "bg-blue-100 text-blue-800"
-                    : consult.status === "Canceled"
+                    : consultation.status === "Canceled"
                     ? "bg-red-100 text-red-800"
                     : "bg-gray-100 text-gray-800" // Para cualquier otro estado no definido
                 }`}
               >
-                {consult.status}
+                {consultation.status}
               </span>
             </p>
           </div>
-        ))}
+
       </div>
     </div>
   );

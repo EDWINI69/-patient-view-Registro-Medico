@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useHospitals } from "@/app/(protected)/(roles)/(patient)/Hospitales/data/hospitals";
+import { useHospitals } from "@/app/(patient)/Hospitales/data/hospitals";
 import {
   Select,
   SelectContent,
@@ -49,7 +49,7 @@ export function HospitalFilter({
           <SelectContent>
             <SelectItem value="all">Todos</SelectItem>
             <SelectItem value="General">General</SelectItem>
-            <SelectItem value="Specialized">Specialized</SelectItem>
+            <SelectItem value="Specialized">Especializado</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -62,11 +62,11 @@ export function HospitalFilter({
           <SelectContent>
             <SelectItem value="all">Todos</SelectItem>
             <SelectItem value="Mammography">General</SelectItem>
-            <SelectItem value="Cardiology">Specialized</SelectItem>
-            <SelectItem value="Neurology">Neurology</SelectItem>
-            <SelectItem value="Emergency Care">Emergency Care</SelectItem>
-            <SelectItem value="Surgery">Surgery</SelectItem>
-            <SelectItem value="Pediatrics">Pediatrics</SelectItem>
+            <SelectItem value="Cardiology">Especializado</SelectItem>
+            <SelectItem value="Neurology">Neurología</SelectItem>
+            <SelectItem value="Emergency Care">Cuidados de Emergencia</SelectItem>
+            <SelectItem value="Surgery">Cirugía</SelectItem>
+            <SelectItem value="Pediatrics">Pediatría</SelectItem>
           </SelectContent>
         </Select>
       </div>

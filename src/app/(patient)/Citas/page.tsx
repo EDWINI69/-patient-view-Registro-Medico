@@ -44,6 +44,7 @@ export default function Citas() {
   const [formErrors, setFormErrors] = useState({
     date: false,
     doctor: false,
+    reason: false,
     clinicalAnalysis: false,
   });
 
@@ -51,6 +52,7 @@ export default function Citas() {
     const errors = {
       date: !formData.appointmentDate,
       doctor: !formData.doctorName,
+      reason: !formData.reasonForVisit,
       clinicalAnalysis: !formData.consultationType,
     };
 
@@ -62,6 +64,7 @@ export default function Citas() {
     id: "asdf0",
     patientId: patientid,
     doctorName: "",
+    reasonForVisit: "",
     appointmentDate: null,
     healthCenterName: "",
     appointmentStatus: "Requested",
@@ -79,6 +82,7 @@ export default function Citas() {
       id: "asdf" + (appointments.length + 1),
       patientId: patientid,
       doctorName: "",
+      reasonForVisit: "",
       appointmentDate: null,
       healthCenterName: "",
       appointmentStatus: "Requested",
@@ -125,19 +129,19 @@ export default function Citas() {
 
   const dataDoc = [
     {
-      id: "1",
+      id: 1,
       firstName: "Manuel",
       lastName: "Ramirez",
       healthCenterName: "Hosp. Doctor Darío Contreras",
     },
     {
-      id: "2",
+      id: 2,
       firstName: "Harry",
       lastName: "Mason",
       healthCenterName: "Clínica Abreu",
     },
     {
-      id: "3",
+      id: 3,
       firstName: "Madelin",
       lastName: "Celeste",
       healthCenterName: "Hosp. Robert Reid Cabral",
@@ -255,8 +259,14 @@ export default function Citas() {
             <CardContent>
               <form className="mb-5" onSubmit={handleSubmit}>
                 <div className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="doctor">Doctor</Label>
+                  <div className="">
+                    <div className="flex relative">
+                    <Label className="mb-2" htmlFor="doctor">Doctor</Label>
+                    {formErrors.doctor && (
+                      <p className="text-red-500 absolute right-0 text-xs">
+                        Este campo es obligatorio
+                      </p>
+                    )}</div>
                     <Select
                       value={
                         formData.doctorName && formData.healthCenterName
@@ -278,7 +288,7 @@ export default function Citas() {
                     >
                       <SelectTrigger
                         id="doctor"
-                        className={`${
+                        className={`mb-2 ${
                           formErrors.doctor ? "border-red-500" : ""
                         }`}
                       >
@@ -300,14 +310,16 @@ export default function Citas() {
                         })}
                       </SelectContent>
                     </Select>
-                    {formErrors.doctor && (
-                      <p className="text-red-500 text-xs">
+                    
+                  </div>
+                  <div className="">
+                    <div className="flex relative">
+                    <Label className="mb-2" htmlFor="clinicalAnalysis">Tipo de consulta</Label>
+                    {formErrors.clinicalAnalysis && (
+                      <p className="text-red-500 absolute right-0 text-xs">
                         Este campo es obligatorio
                       </p>
-                    )}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="clinicalAnalysis">Tipo de consulta</Label>
+                    )}</div>
                     <Select
                       value={formData.consultationType}
                       onValueChange={(value) =>
@@ -319,7 +331,7 @@ export default function Citas() {
                     >
                       <SelectTrigger
                         id="analysis"
-                        className={`${
+                        className={`mb-2 ${
                           formErrors.clinicalAnalysis ? "border-red-500" : ""
                         }`}
                       >
@@ -333,16 +345,33 @@ export default function Citas() {
                         <SelectItem value="Tratamiento">Tratamiento</SelectItem>
                       </SelectContent>
                     </Select>
-                    {formErrors.clinicalAnalysis && (
-                      <p className="text-red-500 text-xs">
+                  </div>
+                  <div>
+                    <div className="flex relative">
+                    <Label className="mb-2" htmlFor="reasonForViait">Razón de la cita</Label>
+                    {formErrors.reason && (
+                      <p className="text-red-500 absolute right-0 text-xs">
                         Este campo es obligatorio
                       </p>
-                    )}
+                    )}</div>
+                    <input
+                      type="text"
+                      id="reasonForVisit"
+                      name="reasonForVisit"
+                      value={formData.reasonForVisit}
+                      onChange={handleChange}
+                      placeholder="Ingrese la razón de la cita"
+                      className={`border rounded-md p-2 w-full bg-white ${formErrors.reason ? "border-red-500" : ""}`}
+                    />
                   </div>
                   <div className="flex flex-col">
-                    <Label className="mb-2" htmlFor="appointment-date">
-                      Fecha
-                    </Label>
+                    <div className="flex relative">
+                    <Label className="mb-2" htmlFor="appointment-date">Fecha</Label>
+                    {formErrors.date && (
+                      <p className="text-red-500 absolute right-0 text-xs">
+                        Este campo es obligatorio
+                      </p>
+                    )}</div>
                     <DatePicker
                       selected={formData.appointmentDate}
                       onChange={handleDateChange}
@@ -352,19 +381,14 @@ export default function Citas() {
                       dateFormat="dd/MM/yyyy HH:mm"
                       placeholderText="Selecciona una fecha y hora"
                       className={`border rounded-md p-2 w-full bg-white mb-2 ${
-                        formErrors.clinicalAnalysis ? "border-red-500" : ""
+                        formErrors.date ? "border-red-500" : ""
                       }`}
                     />
-                    {formErrors.date && (
-                      <p className="text-red-500 text-xs">
-                        Este campo es obligatorio
-                      </p>
-                    )}
                   </div>
                 </div>
                 <Button
                   type="submit"
-                  className="w-full mt-5 bg-black text-white"
+                  className="w-full mt-5 bg-black text-white hover:bg-blue-700 transition-colors duration-300"
                 >
                   Solicitar Cita
                 </Button>
