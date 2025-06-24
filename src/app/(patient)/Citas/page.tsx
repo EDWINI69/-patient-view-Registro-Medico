@@ -171,7 +171,7 @@ export default function Citas() {
                 </div>
               ) : (
                 // Mostrar lista de citas pendientes
-                <div className="grid gap-2 h-[400px] p-2 scrollbar scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white overflow-y-scroll">
+                <div className="grid gap-2 h-[400px] p-2 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-white overflow-y-scroll">
                   {appointments.map((appointment, index) => (
                     <div className="">
                       <Card
@@ -195,7 +195,7 @@ export default function Citas() {
                               </div>
                               <div className="flex items-center space-x-2 mt-2">
                                 <ClockIcon className="h-4 w-4 text-muted-foreground" />
-                                <span className="text-base text-muted-foreground text-xl">
+                                <span className="text-muted-foreground text-xl">
                                   {new Date(
                                     appointment.appointmentDate
                                   ).toLocaleString("es-ES", {
@@ -258,10 +258,14 @@ export default function Citas() {
                   <div className="space-y-2">
                     <Label htmlFor="doctor">Doctor</Label>
                     <Select
-                      value={JSON.stringify({
-                        doctorName: formData.doctorName,
-                        healthCenterName: formData.healthCenterName,
-                      })}
+                      value={
+                        formData.doctorName && formData.healthCenterName
+                          ? JSON.stringify({
+                              doctorName: formData.doctorName,
+                              healthCenterName: formData.healthCenterName,
+                            })
+                          : ""
+                      }
                       onValueChange={(value) => {
                         const { doctorName, healthCenterName } =
                           JSON.parse(value);

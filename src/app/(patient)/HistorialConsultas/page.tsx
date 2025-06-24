@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { GetData } from "@/hooks/fetchData";
 import { Calendar, Microscope, NotepadText } from "lucide-react";
 import { Sidebar } from "@/components/sidebar";
 
@@ -109,7 +108,8 @@ export default function ConsultationsList() {
           "Ninguno",
       },
       prescriptions:
-        Medicamentos.map((med) => med.medication.name).join(", ") || "Ninguno",
+        Medicamentos.map((med) => med.medication.name).join(", ") ||
+        "Ninguno creo",
       status: true,
     },
   ];
@@ -166,7 +166,7 @@ export default function ConsultationsList() {
                     </span>
                   </div>
                   <button
-                    className="w-full bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-500 transition-colors duration-300"
+                    className="w-full bg-black text-white px-4 py-2 rounded-md hover:bg-blue-500 transition-colors duration-300"
                     onClick={() => handleOpenConsultation(consultations)}
                   >
                     Ver detalles
