@@ -30,21 +30,21 @@ export function Sidebar({ className }: SidebarProps) {
           </div>
           <div className="space-y-1">
             <Link
-              href="\"
+              href="/"
               className="flex items-center gap-2 text-gray-800 rounded-md px-2 py-2 hover:bg-gray-100"
             >
               <House className="h-4 w-4" />
               Home
             </Link>
             <Link
-              href="\Citas"
+              href="/Citas"
               className="flex items-center gap-2 text-gray-800 rounded-md px-2 py-2 hover:bg-gray-100"
             >
               <LayoutGrid className="h-4 w-4" />
               Citas
             </Link>
             <Link
-              href="\HistorialConsultas"
+              href="/HistorialConsultas"
               className="flex items-center gap-2 text-gray-800 rounded-md px-2 py-2 hover:bg-gray-100"
             >
               <House className="h-4 w-4" />
