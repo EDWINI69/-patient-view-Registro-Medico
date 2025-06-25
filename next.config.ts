@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/patientView_registroMedico', // reemplaza con el nombre real
+  basePath: '/patientView_registroMedico',
   images: {
     unoptimized: true,
   },
