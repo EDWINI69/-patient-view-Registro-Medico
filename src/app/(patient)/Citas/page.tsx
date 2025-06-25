@@ -44,7 +44,7 @@ export default function Citas() {
   const [formErrors, setFormErrors] = useState({
     date: false,
     doctor: false,
-    reason: false,
+    // reason: false,
     clinicalAnalysis: false,
   });
 
@@ -52,7 +52,7 @@ export default function Citas() {
     const errors = {
       date: !formData.appointmentDate,
       doctor: !formData.doctorName,
-      reason: !formData.reasonForVisit,
+      // reason: !formData.reasonForVisit,
       clinicalAnalysis: !formData.consultationType,
     };
 
@@ -61,10 +61,10 @@ export default function Citas() {
   };
 
   const [formData, setFormData] = useState({
-    id: "asdf0",
+    id: 0,
     patientId: patientid,
     doctorName: "",
-    reasonForVisit: "",
+    // reasonForVisit: "",
     appointmentDate: null,
     healthCenterName: "",
     appointmentStatus: "Requested",
@@ -79,10 +79,10 @@ export default function Citas() {
 
     // Reiniciar el formulario
     setFormData({
-      id: "asdf" + (appointments.length + 1),
+      id: 0 + (appointments.length + 1),
       patientId: patientid,
       doctorName: "",
-      reasonForVisit: "",
+      // reasonForVisit: "",
       appointmentDate: null,
       healthCenterName: "",
       appointmentStatus: "Requested",
@@ -346,7 +346,7 @@ export default function Citas() {
                       </SelectContent>
                     </Select>
                   </div>
-                  <div>
+                {/* <div>
                     <div className="flex relative">
                     <Label className="mb-2" htmlFor="reasonForViait">Razón de la cita</Label>
                     {formErrors.reason && (
@@ -363,7 +363,7 @@ export default function Citas() {
                       placeholder="Ingrese la razón de la cita"
                       className={`border rounded-md p-2 w-full bg-white ${formErrors.reason ? "border-red-500" : ""}`}
                     />
-                  </div>
+                  </div>*/}
                   <div className="flex flex-col">
                     <div className="flex relative">
                     <Label className="mb-2" htmlFor="appointment-date">Fecha</Label>
